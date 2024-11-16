@@ -6,71 +6,132 @@
     <link rel="stylesheet" href="styles.css">
     <title>Contact</title>
     <style>
+        /* Base Style */
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
+        header {
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
+        nav li {
+            margin-right: 20px;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-}
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
 
-.contact {
-    text-align: center;
-    padding: 40px;
-}
+        nav a:hover {
+            color: #FF6347;
+        }
 
-.contact h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-.contact-person {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px 0;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .contact h1 {
+            font-size: 42px;
+            color: #2C3E50;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-.contact-person h2 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 10px;
-}
+        /* Contact Person Cards */
+        .contact-person {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            width: 80%;
+        }
 
-.contact-person p {
-    color: #666;
-    margin: 5px 0;
-}
+        .contact-person:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-person h2 {
+            font-size: 28px;
+            color: #333;
+            margin-top: 10px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .contact-person p {
+            color: #555;
+            font-size: 16px;
+            margin: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .contact-person p:hover {
+            color: #FF6347;
+            cursor: pointer;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #FF6347;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .contact-person {
+                width: 100%;
+            }
+        }
 
     </style>
 </head>
 <body>
+
     <header>
         <nav>
             <ul>
@@ -81,38 +142,41 @@ nav a {
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <!-- Add links to other pages here -->
             </ul>
         </nav>
     </header>
-
 
     <section class="contact">
         <h1>Contact Information</h1>
        
         <div class="contact-person">
             <h2>Mess Manager</h2>
-            <p>Name: </p>
-            <p>Email: </p>
-            <p>Phone: </p>
+            <p>Name: John Doe</p>
+            <p>Email: johndoe@example.com</p>
+            <p>Phone: +123 456 7890</p>
         </div>
 
         <div class="contact-person">
             <h2>Mess Incharge</h2>
-            <p>Name: </p>
-            <p>Email: </p>
-            <p>Phone: </p>
+            <p>Name: Jane Smith</p>
+            <p>Email: janesmith@example.com</p>
+            <p>Phone: +123 456 7891</p>
         </div>
 
         <div class="contact-person">
-            <h2>Mess committee</h2>
-            <p>Name: </p>
-            <p>Email:</p>
-            <p>Phone: </p>
+            <h2>Mess Committee</h2>
+            <p>Name: Alan Brown</p>
+            <p>Email: alanbrown@example.com</p>
+            <p>Phone: +123 456 7892</p>
         </div>
     </section>
+
+    <footer>
+        
+    </footer>
+
     <script>
-        // JavaScript code to toggle contact information visibility
+        // JavaScript to toggle contact information visibility
         document.addEventListener('DOMContentLoaded', function () {
             const contactPersons = document.querySelectorAll('.contact-person');
 
@@ -130,5 +194,6 @@ nav a {
             });
         });
     </script>
+
 </body>
 </html>

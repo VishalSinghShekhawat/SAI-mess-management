@@ -1,175 +1,267 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-    }
-    header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance & Refund System</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #3a7bd5, #3a6073);
+            color: #333;
+            padding: 0;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-}
-    
-    h1 {
-        text-align: center;
-        margin-top: 20px;
-    }
-    
-    .attendance-form {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-        border: 1px solid #ccc;
-        padding: 20px;
-        background-color: #fff;
-    }
-    
-    .refund-calculator {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-        border: 1px solid #ccc;
-        padding: 20px;
-        margin-top: 20px;
-        background-color: #fff;
-    }
-    
-    label {
-        display: inline-block;
-        width: 100px;
-        text-align: right;
-        font-weight: bold;
-    }
-    
-    input[type="text"], input[type="number"] {
-        width: 200px;
-        padding: 5px;
-        margin: 5px;
-        font-weight: bold;
-    }
-    
-    button {
-        padding: 5px 10px;
-        background-color: #0074D9;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-    }
-    
-    .attendance-summary {
-        margin: 10px 0;
-        font-weight: bold;
-    }
-    
-    .qr-code {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-        margin-top: 20px;
-        font-weight: bold;
-    }
-    
-    #student-qr-code {
-        max-width: 100%;
-        height: auto;
-    }
+        /* Header Styling */
+        header {
+            background-color: #2c3e50;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        li {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #ff6f61;
+            transform: scale(1.05);
+        }
+
+        /* Main Content Styling */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-container {
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #3a7bd5;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #3a7bd5;
+            box-shadow: 0 0 6px rgba(58, 123, 213, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #3a7bd5;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #2d5986;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .summary {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .highlight {
+            color: #ff6f61;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            h1, h2 {
+                font-size: 1.5rem;
+            }
+
+            ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            a {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header Section -->
     <header>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="signup.html">SignUp</a></li>
-                <li><a href="Login.html">Login</a></li>
-                <li><a href="attendence.html">Attendence</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="attendance.html">Attendance</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <!-- Add links to other pages here -->
             </ul>
         </nav>
     </header>
-    <h1></h1>
-    <div class="attendance-form">
-        <h2>Student Attendance</h2>
-        <form id="attendance-form">
-            <label for="student-id">Student ID:</label>
-            <input type="text" id="student-id" value="123456" readonly>
-            <button id="scan-button">Scan</button>
-        </form>
-        <div class="attendance-summary">
-            <p>Total Days: <span id="total-days">0</span></p>
-            <p>Present Days: <span id="present-days">0</span></p>
-            <p>Absent Days: <span id="absent-days">0</span></p>
+
+    <!-- Main Container for Attendance & Refund System -->
+    <div class="container">
+        <!-- Attendance Form Section -->
+        <div class="form-container">
+            <h2>Student Attendance</h2>
+            <form id="attendance-form">
+                <label for="student-id">Student ID:</label>
+                <input type="text" id="student-id" placeholder="Enter your Student ID">
+                <button type="button" id="mark-attendance">Mark Attendance</button>
+            </form>
+
+            <div class="summary">
+                <p>Total Days: <span class="highlight" id="total-days">0</span></p>
+                <p>Present Days: <span class="highlight" id="present-days">0</span></p>
+                <p>Absent Days: <span class="highlight" id="absent-days">0</span></p>
+            </div>
         </div>
-    </div>
-    <div class="refund-calculator">
-        <h2>Refund Calculator</h2>
-        <form id="refund-form">
-            <label for="total-days-refund"></label>
-            <input type="number" id="total-days-refund">
-            <button id="calculate-refund">Calculate Refund</button>
-            <p>Refund Amount: <span id="refund-amount">0</span></p>
-        </form>
-    </div>
-    <div class="qr-code">
-        <h2>Student QR Code</h2>
-        <img src="item7.jpg" alt="Student QR Code" id="student-qr-code">
+
+        <!-- Refund Calculator Section -->
+        <div class="form-container">
+            <h2>Refund Calculator</h2>
+            <form id="refund-form">
+                <label for="total-days-refund">Total Days for Refund:</label>
+                <input type="number" id="total-days-refund" placeholder="Enter total days">
+                <button type="button" id="calculate-refund">Calculate Refund</button>
+            </form>
+
+            <div class="summary">
+                <p>Refund Amount: ₹<span class="highlight" id="refund-amount">0</span></p>
+            </div>
+        </div>
     </div>
 
     <script>
+        // Attendance Tracking
         const totalDaysElement = document.getElementById("total-days");
         const presentDaysElement = document.getElementById("present-days");
         const absentDaysElement = document.getElementById("absent-days");
-        const totalDaysRefundElement = document.getElementById("total-days-refund");
-        const refundAmountElement = document.getElementById("refund-amount");
+        const markAttendanceButton = document.getElementById("mark-attendance");
 
         let totalDays = 0;
         let presentDays = 0;
 
-        // Simulate attendance tracking when the "Scan" button is clicked
-        const scanButton = document.getElementById("scan-button");
-        scanButton.addEventListener("click", function () {
-            // In a real application, you would have logic here to update the attendance
-            // For this example, we'll increment totalDays and presentDays
+        markAttendanceButton.addEventListener("click", function () {
+            const studentId = document.getElementById("student-id").value.trim();
+            if (studentId === "") {
+                alert("Please enter a valid Student ID");
+                return;
+            }
             totalDays++;
             presentDays++;
-
-            // Update the summary
             totalDaysElement.textContent = totalDays;
             presentDaysElement.textContent = presentDays;
             absentDaysElement.textContent = totalDays - presentDays;
         });
 
-        // Calculate refund amount when the "Calculate Refund" button is clicked
+        // Refund Calculation
+        const totalDaysRefundElement = document.getElementById("total-days-refund");
+        const refundAmountElement = document.getElementById("refund-amount");
         const calculateRefundButton = document.getElementById("calculate-refund");
+
         calculateRefundButton.addEventListener("click", function () {
-            const totalDaysRefund = parseInt(totalDaysRefundElement.value, 10);
+            const totalDaysRefund = parseInt(totalDaysRefundElement.value);
+            if (isNaN(totalDaysRefund) || totalDaysRefund < 0) {
+                alert("Please enter a valid number of days");
+                return;
+            }
             const absentDays = totalDaysRefund - presentDays;
-            const refundAmount = absentDays * 10; // Assuming a refund rate of $10 per absent day
-            refundAmountElement.textContent = `$${refundAmount}`;
+            const refundAmount = absentDays * 10; // ₹10 per absent day
+            refundAmountElement.textContent = Math.max(0, refundAmount);
         });
     </script>
+
 </body>
 </html>
