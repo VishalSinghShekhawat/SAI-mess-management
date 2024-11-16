@@ -6,79 +6,163 @@
     <link rel="stylesheet" href="styles.css">
     <title>Menu</title>
     <style>
+        /* Base Style */
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f9f9f9, #e0e0e0);
+            color: #333;
+        }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
+        header {
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
+        nav li {
+            margin: 0 25px;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
-}
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+        }
 
-.menu {
-    text-align: center;
-    padding: 40px;
-}
+        nav a:hover {
+            color: #FF6347;
+            transform: scale(1.1);
+        }
 
-.menu h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
+        /* Menu Section */
+        .menu {
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-.menu-items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+        .menu h1 {
+            font-size: 40px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-.menu-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-}
+        .menu-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-.menu-item img {
-    max-width: 50%;
-}
+        .menu-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 25px;
+            width: 250px;
+            max-width: 280px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
 
-.menu-item h2 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 10px;
-}
+        .menu-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
 
-.menu-item p {
-    color: #666;
-}
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .menu-item img:hover {
+            opacity: 0.85;
+        }
+
+        .menu-item h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 15px;
+            font-weight: 600;
+            text-transform: capitalize;
+            transition: color 0.3s;
+        }
+
+        .menu-item p {
+            color: #777;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        .menu-item:hover h2 {
+            color: #FF6347;
+        }
+
+        .menu-item:hover p {
+            color: #444;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #2C3E50;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #FF6347;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .menu-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-item {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
 
     </style>
 </head>
 <body>
+
     <header>
         <nav>
             <ul>
@@ -89,40 +173,39 @@ nav a {
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <!-- Add links to other pages here -->
             </ul>
         </nav>
     </header>
-  
+
     <section class="menu">
         <h1>Our Delicious Menu</h1>
-        <div class="menu-item">
-            <img src="item5.jpg" alt="Menu Item 2">
-            <h2>Menu</h2>
-            <p></p>
-        </div>
         <div class="menu-items">
             <div class="menu-item">
-                <img src="item4.jpg" alt="Menu Item 1">
-                <h2>Mess</h2>
-                <p></p>
-            </div>
-            <div class="menu-item">
-                <img src="item1.jpg" alt="Menu Item 2">
+                <img src="item1.jpg" alt="Breakfast">
                 <h2>Breakfast</h2>
-                <p></p>
+                <p>Start your day with a healthy and nutritious breakfast.</p>
             </div>
             <div class="menu-item">
-                <img src="item2.jpg" alt="Menu Item 3">
+                <img src="item2.jpg" alt="Lunch">
                 <h2>Lunch</h2>
-                <p></p>
+                <p>Enjoy a hearty meal to fuel your afternoon.</p>
             </div>
             <div class="menu-item">
-                <img src="item3.jpg" alt="Menu Item 4">
+                <img src="item3.jpg" alt="Dinner">
                 <h2>Dinner</h2>
-                <p>End your day with a hearty and satisfying dinner.</p>
+                <p>End your day with a satisfying and delicious dinner.</p>
+            </div>
+            <div class="menu-item">
+                <img src="item4.jpg" alt="Mess">
+                <h2>Mess</h2>
+                <p>A wholesome selection of meals for all tastes.</p>
             </div>
         </div>
     </section>
+
+    <footer>
+       
+    </footer>
+
 </body>
 </html>
