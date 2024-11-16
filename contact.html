@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.contact {
+    text-align: center;
+    padding: 40px;
+}
+
+.contact h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-person {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-person h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.contact-person p {
+    color: #666;
+    margin: 5px 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">SignUp</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="attendence.html">Attendence</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Add links to other pages here -->
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="contact">
+        <h1>Contact Information</h1>
+       
+        <div class="contact-person">
+            <h2>Mess Manager</h2>
+            <p>Name: </p>
+            <p>Email: </p>
+            <p>Phone: </p>
+        </div>
+
+        <div class="contact-person">
+            <h2>Mess Incharge</h2>
+            <p>Name: </p>
+            <p>Email: </p>
+            <p>Phone: </p>
+        </div>
+
+        <div class="contact-person">
+            <h2>Mess committee</h2>
+            <p>Name: </p>
+            <p>Email:</p>
+            <p>Phone: </p>
+        </div>
+    </section>
+    <script>
+        // JavaScript code to toggle contact information visibility
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactPersons = document.querySelectorAll('.contact-person');
+
+            contactPersons.forEach(person => {
+                const name = person.querySelector('h2');
+                const details = person.querySelectorAll('p');
+                details.forEach(detail => detail.style.display = 'none');
+
+                name.style.cursor = 'pointer';
+                name.addEventListener('click', () => {
+                    details.forEach(detail => {
+                        detail.style.display = detail.style.display === 'none' ? 'block' : 'none';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

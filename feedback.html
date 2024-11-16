@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Feedback</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.feedback {
+    text-align: center;
+    padding: 40px;
+}
+
+.feedback h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feedback p {
+    color: #666;
+}
+
+.rating {
+    margin: 20px 0;
+}
+
+.rating label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.rating input[type="range"] {
+    width: 100%;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+.rating input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4b6cb7;
+    border: 1px solid #4b6cb7;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -9px;
+}
+
+.rating input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.rating span {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.comments {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.comments label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.comments textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+button {
+    display: inline-block;
+    background-color: #4b6cb7;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #354f96;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">SignUp</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="attendence.html">Attendence</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Add links to other pages here -->
+            </ul>
+        </nav>
+    </header>
+  
+
+    <!-- <section class="feedback">
+        <h1>Feedback</h1>
+        <p>We value your opinion. Please rate your meal experience.</p>
+        <form>
+            <div class="rating">
+                <label for="breakfast-rating">Breakfast:</label>
+                <input type="range" id="breakfast-rating" name="breakfast-rating" min="1" max="5">
+                <span id="breakfast-rating-value">3</span>
+            </div>
+            <div class="rating">
+                <label for="lunch-rating">Lunch:</label>
+                <input type="range" id="lunch-rating" name="lunch-rating" min="1" max="5">
+                <span id="lunch-rating-value">3</span>
+            </div>
+            <div class="rating">
+                <label for="snacks-rating">Evening Snacks:</label>
+                <input type="range" id="snacks-rating" name="snacks-rating" min="1" max="5">
+                <span id="snacks-rating-value">3</span>
+            </div>
+            <div class="rating">
+                <label for="dinner-rating">Dinner:</label>
+                <input type="range" id="dinner-rating" name="dinner-rating" min="1" max="5">
+                <span id="dinner-rating-value">3</span>
+            </div>
+            <div class="comments">
+                <label for="comments">Comments (optional):</label>
+                <textarea id="comments" name="comments"></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section> -->
+    <section class="feedback">
+        <h1>Feedback</h1>
+        <p>We value your opinion. Please rate your meal experience.</p>
+        <form id="feedback-form">
+            <div class="rating">
+                <label for="breakfast-rating">Breakfast:</label>
+                <div class="star-rating" id="breakfast-rating">
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                </div>
+                <input type="hidden" id="breakfast-rating-input" name="breakfast-rating" value=" ">
+                <span id="breakfast-rating-value"></span>
+            </div>
+            <div class="rating">
+                <label for="lunch-rating">Lunch:</label>
+                <div class="star-rating" id="lunch-rating">
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                </div>
+                <input type="hidden" id="lunch-rating-input" name="lunch-rating" value=" ">
+                <span id="lunch-rating-value"></span>
+            </div>
+            <div class="rating">
+                <label for="snacks-rating">Snacks:</label>
+                <div class="star-rating" id="snacks-rating">
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                </div>
+                <input type="hidden" id="snacks-rating-input" name="snacks-rating" value=" ">
+                <span id="snacks-rating-value"></span>
+            </div>
+            <div class="rating">
+                <label for="dinner-rating">Dinner:</label>
+                <div class="star-rating" id="breakfast-rating">
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                    <span class="star" data-value="">&#9733;</span>
+                </div>
+                <input type="hidden" id="dinner-rating-input" name="dinner-rating" value=" ">
+                <span id="dinner-rating-value"></span>
+            </div>
+            <!-- Add similar sections for lunch, snacks, and dinner ratings -->
+            <div class="comments">
+                <label for="comments">Your Review:</label>
+                <textarea id="comments" name="comments"></textarea>
+            </div>
+            <button type="button" id="submit-button">Submit Feedback</button>
+        </form>
+    </section>
+
+    
+    <script>
+        // JavaScript to enhance the feedback form
+        const starContainers = document.querySelectorAll('.star-rating');
+        const commentTextarea = document.getElementById('comments');
+        const submitButton = document.getElementById('submit-button');
+    
+        // Function to update star ratings and rating values
+        function updateRating(ratingContainer, ratingInput) {
+            const stars = ratingContainer.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    const value = index + 1;
+                    ratingInput.value = value;
+                    stars.forEach(s => s.classList.remove('selected'));
+                    for (let i = 0; i < value; i++) {
+                        stars[i].classList.add('selected');
+                    }
+                });
+            });
+        }
+    
+        // Initialize star ratings for all meal types
+        starContainers.forEach((container) => {
+            const ratingInput = container.nextElementSibling;
+            updateRating(container, ratingInput);
+        });
+    
+        // Add optional comments functionality
+        commentTextarea.addEventListener('focus', () => {
+            commentTextarea.style.borderColor = '#4b6cb7';
+        });
+    
+        commentTextarea.addEventListener('blur', () => {
+            commentTextarea.style.borderColor = '#ccc';
+        });
+    
+        // Validate and submit the form
+        submitButton.addEventListener('click', () => {
+            const valid = validateForm();
+            if (valid) {
+                submitButton.disabled = true;
+                // You can submit the form data to the server here or perform other actions
+                alert('Feedback submitted successfully!');
+                // Optionally, reset the form or navigate to another page
+            }
+        });
+    
+        function validateForm() {
+            const starRatings = document.querySelectorAll('.star-rating');
+            const selectedRatings = Array.from(starRatings).every(container => {
+                return container.querySelectorAll('.star.selected').length > 0;
+            });
+    
+            if (!selectedRatings) {
+                alert('Please rate all meal types.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+    
+</body>
+</html>

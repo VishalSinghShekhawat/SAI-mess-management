@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+    
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .attendance-form {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: #fff;
+    }
+    
+    .refund-calculator {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #fff;
+    }
+    
+    label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        font-weight: bold;
+    }
+    
+    input[type="text"], input[type="number"] {
+        width: 200px;
+        padding: 5px;
+        margin: 5px;
+        font-weight: bold;
+    }
+    
+    button {
+        padding: 5px 10px;
+        background-color: #0074D9;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    .attendance-summary {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+    
+    .qr-code {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    
+    #student-qr-code {
+        max-width: 100%;
+        height: auto;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">SignUp</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="attendence.html">Attendence</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Add links to other pages here -->
+            </ul>
+        </nav>
+    </header>
+    <h1></h1>
+    <div class="attendance-form">
+        <h2>Student Attendance</h2>
+        <form id="attendance-form">
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" value="123456" readonly>
+            <button id="scan-button">Scan</button>
+        </form>
+        <div class="attendance-summary">
+            <p>Total Days: <span id="total-days">0</span></p>
+            <p>Present Days: <span id="present-days">0</span></p>
+            <p>Absent Days: <span id="absent-days">0</span></p>
+        </div>
+    </div>
+    <div class="refund-calculator">
+        <h2>Refund Calculator</h2>
+        <form id="refund-form">
+            <label for="total-days-refund"></label>
+            <input type="number" id="total-days-refund">
+            <button id="calculate-refund">Calculate Refund</button>
+            <p>Refund Amount: <span id="refund-amount">0</span></p>
+        </form>
+    </div>
+    <div class="qr-code">
+        <h2>Student QR Code</h2>
+        <img src="item7.jpg" alt="Student QR Code" id="student-qr-code">
+    </div>
+
+    <script>
+        const totalDaysElement = document.getElementById("total-days");
+        const presentDaysElement = document.getElementById("present-days");
+        const absentDaysElement = document.getElementById("absent-days");
+        const totalDaysRefundElement = document.getElementById("total-days-refund");
+        const refundAmountElement = document.getElementById("refund-amount");
+
+        let totalDays = 0;
+        let presentDays = 0;
+
+        // Simulate attendance tracking when the "Scan" button is clicked
+        const scanButton = document.getElementById("scan-button");
+        scanButton.addEventListener("click", function () {
+            // In a real application, you would have logic here to update the attendance
+            // For this example, we'll increment totalDays and presentDays
+            totalDays++;
+            presentDays++;
+
+            // Update the summary
+            totalDaysElement.textContent = totalDays;
+            presentDaysElement.textContent = presentDays;
+            absentDaysElement.textContent = totalDays - presentDays;
+        });
+
+        // Calculate refund amount when the "Calculate Refund" button is clicked
+        const calculateRefundButton = document.getElementById("calculate-refund");
+        calculateRefundButton.addEventListener("click", function () {
+            const totalDaysRefund = parseInt(totalDaysRefundElement.value, 10);
+            const absentDays = totalDaysRefund - presentDays;
+            const refundAmount = absentDays * 10; // Assuming a refund rate of $10 per absent day
+            refundAmountElement.textContent = `$${refundAmount}`;
+        });
+    </script>
+</body>
+</html>
